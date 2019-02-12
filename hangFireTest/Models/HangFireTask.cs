@@ -7,14 +7,14 @@ namespace hangFireTest.Models
 {
     public class HangFireTask
     {
+        public DateTime now;
+        public string message = "The UpdateTime method last ran: ";
+
         public HangFireTask()
         {
             UpdateTime();
         }
-        
-        public DateTime now;
-        public string message = "The UpdateTime method last ran: ";
-
+    
         public void UpdateTime ()
         {
             now = DateTime.Now;
