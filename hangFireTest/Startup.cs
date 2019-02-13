@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hangfire;
+using Hangfire.MemoryStorage;
 using hangFireTest.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,7 +27,7 @@ namespace hangFireTest
             string connString = _config.GetConnectionString("HangFireConnString");
             services.AddMvc();
             services.AddSingleton<HangFireTask>();
-            services.AddHangfire(x => x.UseSqlServerStorage(connString));
+            services.AddHangfire(x => x.UseMemoryStorage());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
